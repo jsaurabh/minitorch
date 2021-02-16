@@ -5,78 +5,142 @@ import math
 
 
 def mul(x, y):
-    ":math:`f(x, y) = x * y`"
+    """
+    Multiplication.
+
+    Args:
+        x (float): A float number
+        y (float): A float number
+
+    Returns:
+        Multiplication of two numbers
+    """
+    return x * y
+    # ":math:`f(x, y) = x * y`"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    # raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def id(x):
-    ":math:`f(x) = x`"
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    """
+    Identity.
+
+    Args:
+        x (float): A float number
+
+    Returns:
+        x
+    """
+    return x
 
 
 def add(x, y):
-    ":math:`f(x, y) = x + y`"
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    """
+    Multiplication.
+
+    Args:
+        x (float): A float number
+        y (float): A float number
+
+    Returns:
+        Addition of two numbers
+    """
+    return x + y
 
 
 def neg(x):
-    ":math:`f(x) = -x`"
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    """
+    Negation.
+
+    Args:
+        x (float): A float number
+
+    Returns:
+        Negation of x
+    """
+    return -x
 
 
 def lt(x, y):
-    ":math:`f(x) =` 1.0 if x is less than y else 0.0"
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    """
+    Find whether x is a smaller number than y.
+
+    Args:
+        x (float): A float number
+        y (float): A float number
+
+    Returns:
+        Boolean indicating x is lower than y
+    """
+    return x < y
 
 
 def eq(x, y):
-    ":math:`f(x) =` 1.0 if x is equal to y else 0.0"
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    """
+    Find whether x is equals to y.
+
+    Args:
+        x (float): A float number
+        y (float): A float number
+
+    Returns:
+        Boolean indicating x equals y
+    """
+    return x == y
 
 
 def max(x, y):
-    ":math:`f(x) =` x if x is greater than y else y"
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    """
+    Find max of given two numbers x and y.
+
+    Args:
+        x (float): A float number
+        y (float): A float number
+
+    Returns:
+        Maximum number of the two inputs
+    """
+    return x if x > y else y
 
 
 def sigmoid(x):
-    r"""
-    :math:`f(x) =  \frac{1.0}{(1.0 + e^{-x})}`
-
-    (See `<https://en.wikipedia.org/wiki/Sigmoid_function>`_ .)
-
-    Calculate as
-
-    :math:`f(x) =  \frac{1.0}{(1.0 + e^{-x})}` if x >=0 else :math:`\frac{e^x}{(1.0 + e^{x})}`
-
-    for stability.
-
     """
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    Find sigmoid of given number.
+
+    Args:
+        x (float): A float number
+
+    Returns:
+        Sigmoidal of the input
+    """
+    return (1. / (1. + math.exp(-x))) if x >= 0 else (1. / (1. + math.exp(x)))
 
 
 def relu(x):
     """
-    :math:`f(x) =` x if x is greater than 0, else 0
+    Find ReLU activation of given number.
 
-    (See `<https://en.wikipedia.org/wiki/Rectifier_(neural_networks)>`_ .)
+    Args:
+        x (float): A float number
+
+    Returns:
+        ReLu value of the input
     """
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    return x if x > 0 else 0
 
 
 def relu_back(x, y):
-    ":math:`f(x) =` y if x is greater than 0 else 0"
-    # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    """
+    Find back ReLU activation of given number.
+
+    Args:
+        x (float): A float number
+        y (float): A float number
+
+    Returns:
+        Back ReLu value of the input
+    """
+    return y if x > 0 else 0
 
 
 EPS = 1e-6
