@@ -1,7 +1,7 @@
 from minitorch import operators
 from hypothesis import given
 from hypothesis.strategies import lists
-from .strategies import small_floats, assert_close
+from .strategies import small_floats, assert_close, small_ints
 import pytest
 
 
@@ -27,35 +27,26 @@ def test_relu(a):
 
 
 @pytest.mark.task0_2
-def test_symmetric():
-    """
-    Write a test that ensures that :func:`minitorch.operators.mul` is symmetric, i.e.
-    gives the same value regardless of the order of its input.
-    """
-    None
-    # TODO: Implement for Task 0.2.
-    raise NotImplementedError('Need to implement for Task 0.2')
+@given(small_floats, small_floats)
+def test_symmetric(x, y):
+    assert operators.mul(x,y) == operators.mul(y, x)
+    assert operators.add(x,y) == operators.add(y, x)
+    assert operators.max(x,y) == operators.max(y, x)
 
 
 @pytest.mark.task0_2
-def test_distribute():
-    r"""
-    Write a test that ensures that your operators distribute, i.e.
-    :math:`z \times (x + y) = z \times x + z \times y`
-    """
-    None
-    # TODO: Implement for Task 0.2.
-    raise NotImplementedError('Need to implement for Task 0.2')
+@given(small_ints, small_floats, small_floats)
+def test_distribute(x, y, z):
+    assert_close(x * (operators.relu(y) + operators.relu(z)), (x * operators.relu(y)) + (x * operators.relu(z)))
+    assert_close(x * (operators.sigmoid(y) + operators.sigmoid(z)), (x * operators.sigmoid(y)) + (x * operators.sigmoid(z)))
 
 
 @pytest.mark.task0_2
-def test_other():
-    """
-    Write a test that ensures some other property holds for your functions.
-    """
-    None
-    # TODO: Implement for Task 0.2.
-    raise NotImplementedError('Need to implement for Task 0.2')
+@given(small_floats)
+def test_other(x):
+    assert 0 + operators.id(x) == x
+    assert x + operators.neg(x) == 0 
+    assert -x + operators.neg(x) == operators.neg(operators.mul(x, 2))
 
 
 # HIGHER ORDER

@@ -16,9 +16,6 @@ def mul(x, y):
         Multiplication of two numbers
     """
     return x * y
-    # ":math:`f(x, y) = x * y`"
-    # TODO: Implement for Task 0.1.
-    # raise NotImplementedError('Need to implement for Task 0.1')
 
 
 def id(x):
@@ -72,7 +69,7 @@ def lt(x, y):
     Returns:
         Boolean indicating x is lower than y
     """
-    return x < y
+    return 1. if x < y else 0.
 
 
 def eq(x, y):
